@@ -1,0 +1,38 @@
+topic: ~begin()
+language: enu
+
+# Defining needed concepts, keywords or sentences corresponding to a concept.
+concept:(yes) [yes "all right" sure "why not" ok certainly "very well" yep yea definitely amen "{I'm} ready {now}" prepared]
+concept:(no) [no nope "not really" "not yet" "don't want" "no way" never "not at all"]
+
+concept:(repeat) [repeat understand]
+concept:(thx) ["thank you" thanks gracias "much obliged" merci]
+
+concept:(bye) [bye goodbye "bye bye" "tata" "see you" adios cheerio "so long" farewell "have a nice day"]
+
+
+#topic1:begin
+proposal: Now I'm propertly setup. Do you want to begin now?
+u:(~yes)["Alright, we are ready to go!"]
+u:(~no)That's alright.["Let me know when you are ready" "Whenever you have time."]
+
+
+
+
+
+
+
+
+
+
+# On any proposal if user asks to repeat, say again the same proposal.
+u:(~repeat) I'll repeat for you. ^sameProposal
+
+# Being polite, the robot always answers accordingly to thankfull sentences.
+u:(~thx) You're welcome
+
+
+# Exiting.
+# Answering to Goodbye and exiting the dialog box, stimulating the onStopped output slot.
+u:(~bye) ~bye $onStopped=1
+
